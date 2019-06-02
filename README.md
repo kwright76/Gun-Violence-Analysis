@@ -7,8 +7,11 @@ This project aims to develop a data product that makes complex data-driven argum
 ) that we used throughout project.
 
 The project consist of the following three parts:
-1. **Explorotary Data Analysis:** compiled, cleansed, and explained the data in detail
-2. **First Version:** based on non-trivial findings using Altair
-3. **Revised Version:** final visualization of our data findings that will be reproducible and self contained.
+1. **Explorotary Data Analysis:** 
+The data is compiled, cleansed, and explained the in detail.
+2. **First Version:**
+Visualizations are formed based on non-trivial findings using Altair and Tableau.
+3. **Revised Version:** 
+The final visualization of our data findings that will be reproducible and self contained.
 
 
