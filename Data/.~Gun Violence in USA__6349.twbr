@@ -1,0 +1,1998 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20191.19.0321.1733                               -->
+<workbook source-build='2019.1.2 (20191.19.0321.1733)' source-platform='mac' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <repository-location id='GunViolenceinUSA' path='/workbooks' revision='1.0' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='gun_violence' inline='true' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='gun_violence' name='textscan.13b9dx81efazic11z6qeo1gcxx2x'>
+            <connection class='textscan' directory='/Users/syra/Documents/GitHub/Gun-Violence-Analysis/Data' filename='gun_violence.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.13b9dx81efazic11z6qeo1gcxx2x' name='gun_violence.csv' table='[gun_violence#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='date' name='Incident Date' ordinal='1' />
+            <column datatype='string' name='State' ordinal='2' />
+            <column datatype='string' name='City Or County' ordinal='3' />
+            <column datatype='string' name='Address' ordinal='4' />
+            <column datatype='integer' name='# Killed' ordinal='5' />
+            <column datatype='integer' name='# Injured' ordinal='6' />
+            <column datatype='string' name='Operations' ordinal='7' />
+            <column datatype='string' name='Category' ordinal='8' />
+            <column datatype='string' name='Age' ordinal='9' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[gun_violence.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[gun_violence.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Incident Date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Incident Date]</local-name>
+            <parent-name>[gun_violence.csv]</parent-name>
+            <remote-alias>Incident Date</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>State</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[State]</local-name>
+            <parent-name>[gun_violence.csv]</parent-name>
+            <remote-alias>State</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>City Or County</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[City Or County]</local-name>
+            <parent-name>[gun_violence.csv]</parent-name>
+            <remote-alias>City Or County</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Address</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Address]</local-name>
+            <parent-name>[gun_violence.csv]</parent-name>
+            <remote-alias>Address</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name># Killed</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[# Killed]</local-name>
+            <parent-name>[gun_violence.csv]</parent-name>
+            <remote-alias># Killed</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name># Injured</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[# Injured]</local-name>
+            <parent-name>[gun_violence.csv]</parent-name>
+            <remote-alias># Injured</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Operations</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Operations]</local-name>
+            <parent-name>[gun_violence.csv]</parent-name>
+            <remote-alias>Operations</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Category]</local-name>
+            <parent-name>[gun_violence.csv]</parent-name>
+            <remote-alias>Category</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Age</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Age]</local-name>
+            <parent-name>[gun_violence.csv]</parent-name>
+            <remote-alias>Age</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Number of Records:qk]&quot;' value='Total Gun Violence Instances' />
+        </aliases>
+      </column>
+      <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[# Killed] +[# Injured]' />
+      </column>
+      <column datatype='string' name='[City Or County]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column-instance column='[# Injured]' derivation='Avg' name='[avg:# Injured:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[# Killed]' derivation='Avg' name='[avg:# Killed:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_3359966860112904192]' derivation='Avg' name='[avg:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_3359966860112904192]' derivation='Avg' name='[cum:avg:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' ordering-type='Rows' type='CumTotal' />
+      </column-instance>
+      <column-instance column='[Calculation_3359966860112904192]' derivation='Max' name='[max:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_3359966860112904192]' derivation='Avg' name='[rank:avg:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' rank-options='Competition,Descending' type='Rank' />
+      </column-instance>
+      <column-instance column='[Calculation_3359966860112904192]' derivation='Stdev' name='[std:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[# Injured]' derivation='Sum' name='[sum:# Injured:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[# Killed]' derivation='Sum' name='[sum:# Killed:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[win:sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Avg' from='-2' ordering-type='Rows' to='0' type='WindowTotal' window-options='IncludeCurrent' />
+      </column-instance>
+      <drill-paths>
+        <drill-path name='State, City Or County'>
+          <field>[State]</field>
+          <field>[City Or County]</field>
+        </drill-path>
+      </drill-paths>
+      <extract count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='Data/Downloads/gun_violence.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='05/26/2019 11:27:34 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <refresh>
+            <refresh-event add-from-file-path='gun_violence' increment-value='%null%' refresh-type='create' rows-inserted='5457' timestamp-start='2019-05-26 23:27:34.315' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>F1</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[F1]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F1</remote-alias>
+              <ordinal>0</ordinal>
+              <family>gun_violence.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>621</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Incident Date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Incident Date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Incident Date</remote-alias>
+              <ordinal>1</ordinal>
+              <family>gun_violence.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>909</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>State</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[State]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>State</remote-alias>
+              <ordinal>2</ordinal>
+              <family>gun_violence.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>57</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>City Or County</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[City Or County]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>City Or County</remote-alias>
+              <ordinal>3</ordinal>
+              <family>gun_violence.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1170</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Address</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Address]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Address</remote-alias>
+              <ordinal>4</ordinal>
+              <family>gun_violence.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2547</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name># Killed</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[# Killed]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias># Killed</remote-alias>
+              <ordinal>5</ordinal>
+              <family>gun_violence.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>14</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name># Injured</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[# Injured]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias># Injured</remote-alias>
+              <ordinal>6</ordinal>
+              <family>gun_violence.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>22</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Operations</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Operations]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Operations</remote-alias>
+              <ordinal>7</ordinal>
+              <family>gun_violence.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Category]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Category</remote-alias>
+              <ordinal>8</ordinal>
+              <family>gun_violence.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Age</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Age]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Age</remote-alias>
+              <ordinal>9</ordinal>
+              <family>gun_violence.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' dim-percentage='0.508711' measure-ordering='alphabetic' measure-percentage='0.491289' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:\# Injured:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:\# Injured:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Number of Records:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[cum:avg:Calculation_3359966860112904192:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[max:Calculation_3359966860112904192:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[rank:avg:Calculation_3359966860112904192:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[std:Calculation_3359966860112904192:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Calculation_3359966860112904192:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[win:sum:Calculation_3359966860112904192:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:\# Killed:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:\# Killed:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Deaths due to Gun Violence in different States'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[# Killed]' derivation='Avg' name='[avg:# Killed:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Longitude (generated)]' field-type='quantitative' max='32622131.426094174' min='24337904.600653164' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Latitude (generated)]' field-type='quantitative' max='7851631.8927230854' min='2542494.462926568' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]' num-steps='5' palette='red_gold_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]' />
+              <lod column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]' />
+              <geometry column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='520' />
+                <format attr='maxwidth' value='520' />
+                <format attr='minheight' value='323' />
+                <format attr='maxheight' value='323' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Latitude (generated)]</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{30355490-B2C9-4459-B454-E55C45751FDA}' />
+    </worksheet>
+    <worksheet name='Injuries and Death due to Gun Violence in different States'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
+            </column>
+            <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[Calculation_3359966860112904192]' derivation='Avg' name='[avg:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Longitude (generated)]' field-type='quantitative' max='34534401.205958962' min='24226149.20433531' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Latitude (generated)]' field-type='quantitative' max='9346892.5253540985' min='2373256.2719066851' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]' num-steps='5' palette='red_gold_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]' />
+              <lod column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]' />
+              <geometry column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minheight' value='504' />
+                <format attr='maxheight' value='504' />
+                <format attr='minwidth' value='745' />
+                <format attr='maxwidth' value='745' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Latitude (generated)]</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{A9E2315C-3F1D-4E29-9A5A-5CEB25225ED8}' />
+    </worksheet>
+    <worksheet name='Injuries due to Gun Violence in different States'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
+            <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[# Injured]' derivation='Avg' name='[avg:# Injured:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Longitude (generated)]' field-type='quantitative' max='32718316.12501169' min='24194854.17446848' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Latitude (generated)]' field-type='quantitative' max='8088252.0086737033' min='2427883.4546450106' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Injured:qk]' num-steps='5' palette='red_gold_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Injured:qk]' />
+              <lod column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]' />
+              <geometry column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minheight' value='344' />
+                <format attr='maxheight' value='344' />
+                <format attr='minwidth' value='518' />
+                <format attr='maxwidth' value='518' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Latitude (generated)]</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{8E296D13-14E9-4BC3-935B-7C1C64E16A3C}' />
+    </worksheet>
+    <worksheet name='Overall trend and relationship of shooting instances and number of people injured or killed from 2014 to 2016'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
+            </column>
+            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Incident Date]' derivation='Year' name='[yr:Incident Date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Calculation_3359966860112904192:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <format attr='title' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Number of Records:qk]' scope='rows' value='Total Gun Violence Instances' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[yr:Incident Date:ok]' value='137' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Number of Records:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Calculation_3359966860112904192:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Number of Records:qk] + [federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Calculation_3359966860112904192:qk])</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[yr:Incident Date:ok]</cols>
+      </table>
+      <simple-id uuid='{9851050F-03EC-45B8-80DC-BC555E05F20D}' />
+    </worksheet>
+    <worksheet name='Sheet 10'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Age]' role='dimension' type='nominal' />
+            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
+            </column>
+            <column-instance column='[Age]' derivation='None' name='[none:Age:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Calculation_3359966860112904192:qk]</cols>
+      </table>
+      <simple-id uuid='{7F46D29A-06E8-44A4-A07D-1960DEA6C448}' />
+    </worksheet>
+    <worksheet name='Sheet 11'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Age]' role='dimension' type='nominal' />
+            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
+            </column>
+            <column datatype='string' name='[Category]' role='dimension' type='nominal' />
+            <column-instance column='[Age]' derivation='None' name='[none:Age:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]'>
+            <groupfilter function='member' level='[none:Category:nk]' member='&quot;Accidental&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]' value='112' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk] * [federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Calculation_3359966860112904192:qk])</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]</cols>
+      </table>
+      <simple-id uuid='{B975C913-13CA-4307-819F-1FD9995CDE60}' />
+    </worksheet>
+    <worksheet name='Sheet 11 (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Category]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
+            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[# Killed]' derivation='Sum' name='[sum:# Killed:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]'>
+            <groupfilter function='member' level='[none:Category:nk]' member='&quot;Accidental&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+        </panes>
+        <rows>([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk] * [federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:# Killed:qk])</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</cols>
+      </table>
+      <simple-id uuid='{1C447E5C-B476-4881-8030-47F99907A5F5}' />
+    </worksheet>
+    <worksheet name='Sheet 11 (3)'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Increase in instance of injuries or deaths caused by accidental gun violence during second half of the year</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Age]' role='dimension' type='nominal' />
+            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
+            </column>
+            <column datatype='string' name='[Category]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
+            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Age]' derivation='None' name='[none:Age:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[win:sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative'>
+              <table-calc aggregation='Avg' from='-2' ordering-type='Rows' to='0' type='WindowTotal' window-options='IncludeCurrent' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Child&quot;' />
+              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Teen&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]'>
+            <groupfilter function='member' level='[none:Category:nk]' member='&quot;Accidental&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]</column>
+            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[win:sum:Calculation_3359966860112904192:qk]' scope='rows' value='Average of accidental Injuries or Deaths' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]' value='false' />
+            <format attr='text-orientation' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]' value='0' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[win:sum:Calculation_3359966860112904192:qk]</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</cols>
+      </table>
+      <simple-id uuid='{03DA3895-714F-4894-839A-0CDFDF61E0DA}' />
+    </worksheet>
+    <worksheet name='Sheet 11 (4)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Age]' role='dimension' type='nominal' />
+            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
+            </column>
+            <column datatype='string' name='[Category]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column-instance column='[# Injured]' derivation='Avg' name='[avg:# Injured:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[# Killed]' derivation='Avg' name='[avg:# Killed:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Age]' derivation='None' name='[none:Age:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[win:sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative'>
+              <table-calc aggregation='Avg' from='-2' ordering-type='Rows' to='0' type='WindowTotal' window-options='IncludeCurrent' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Child&quot;' />
+              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Teen&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]'>
+            <groupfilter function='member' level='[none:Category:nk]' member='&quot;Accidental&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]</column>
+            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <format attr='display' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Injured:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[win:sum:Calculation_3359966860112904192:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Number of Records:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk] * ([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Injured:qk] + ([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk] + ([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[win:sum:Calculation_3359966860112904192:qk] + [federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Number of Records:qk]))))</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</cols>
+      </table>
+      <simple-id uuid='{58714F06-B422-49D3-BF4A-5F7C17456699}' />
+    </worksheet>
+    <worksheet name='Sheet 16'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Age]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
+            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Age]' derivation='None' name='[none:Age:nk]' pivot='key' type='nominal' />
+            <column-instance column='[# Killed]' derivation='Sum' name='[sum:# Killed:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Child&quot;' />
+              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Teen&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:# Killed:qk]</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</cols>
+      </table>
+      <simple-id uuid='{903EDD40-A865-4C09-B6B5-19600191E15C}' />
+    </worksheet>
+    <worksheet name='Sheet 6'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
+            </column>
+            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
+            <column-instance column='[# Injured]' derivation='Avg' name='[avg:# Injured:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[# Killed]' derivation='Avg' name='[avg:# Killed:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_3359966860112904192]' derivation='Avg' name='[avg:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Incident Date]' derivation='Year' name='[yr:Incident Date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[yr:Incident Date:ok]'>
+            <groupfilter function='level-members' level='[yr:Incident Date:ok]' />
+          </filter>
+          <slices>
+            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[yr:Incident Date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Injured:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Injured:qk] + ([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk] + [federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]))</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</cols>
+      </table>
+      <simple-id uuid='{053FC570-5D67-46C6-AAAA-AE27D2B1F4BC}' />
+    </worksheet>
+    <worksheet name='Sheet 6 (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
+            </column>
+            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_3359966860112904192]' derivation='Avg' name='[avg:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Incident Date]' derivation='Year' name='[yr:Incident Date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[yr:Incident Date:ok]'>
+            <groupfilter function='level-members' level='[yr:Incident Date:ok]' />
+          </filter>
+          <slices>
+            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[yr:Incident Date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</cols>
+      </table>
+      <simple-id uuid='{36FC7CAF-C987-46FE-BAFA-0C2282916BFD}' />
+    </worksheet>
+    <worksheet name='Sheet 7'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
+            </column>
+            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
+            <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Alabama&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Arizona&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;California&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Colorado&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Florida&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Georgia&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Hawaii&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Illinois&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Kentucky&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Louisiana&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Mississippi&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Missouri&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Nebraska&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Nevada&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;New Mexico&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;New York&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;North Carolina&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;South Carolina&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Tennessee&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Texas&quot;' />
+              <groupfilter function='member' level='[none:State:nk]' member='&quot;Utah&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Calculation_3359966860112904192:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]</cols>
+      </table>
+      <simple-id uuid='{D25B181F-8E9C-4034-BD52-09A4C4051759}' />
+    </worksheet>
+    <worksheet name='Sheet 8'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
+            </column>
+            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
+            <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[Calculation_3359966860112904192]' derivation='Avg' name='[avg:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]'>
+            <groupfilter function='member' level='[mn:Incident Date:ok]' member='7' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]' num-steps='5' palette='red_gold_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]' />
+              <lod column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]' />
+              <lod column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]' />
+              <geometry column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Geometry (generated)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Latitude (generated)]</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{08E410CF-3603-4F2B-80C4-F7BC1DB1A701}' />
+    </worksheet>
+    <worksheet name='Sheet 8 (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[# Killed]' derivation='Avg' name='[avg:# Killed:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]' />
+              <lod column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]' />
+              <geometry column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Geometry (generated)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Latitude (generated)]</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{C9CAF92B-E678-4103-8707-9FB3F55F761F}' />
+    </worksheet>
+    <worksheet name='Total Occurence of Gun Violence in different States within the US'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Number of Records:qk]' shelf='columns' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Number of Records:qk]</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]</cols>
+      </table>
+      <simple-id uuid='{3396A387-9B84-48E1-9894-A9DCEC4EA41A}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 1'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='52500' id='3' name='Injuries due to Gun Violence in different States' show-title='false' w='69300' x='0' y='12250' />
+        <zone h='9500' id='4' name='Injuries due to Gun Violence in different States' pane-specification-id='0' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Injured:qk]' type='color' w='14000' x='54300' y='13000' />
+        <zone h='52500' id='5' name='Deaths due to Gun Violence in different States' show-title='false' w='84200' x='100' y='58750' />
+        <zone h='9500' id='6' name='Deaths due to Gun Violence in different States' pane-specification-id='0' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]' type='color' w='14000' x='55800' y='61125' />
+        <zone h='7500' id='7' type='text' w='83400' x='200' y='875'>
+          <formatted-text>
+            <run fontsize='14'>Comparison of average Injuries caused by Gun Violence and average Deaths caused by Gun Violence in different States</run>
+          </formatted-text>
+        </zone>
+        <zone h='3750' id='8' type='text' w='10000' x='300' y='8250'>
+          <formatted-text>
+            <run fontsize='12'>Injuries</run>
+          </formatted-text>
+        </zone>
+        <zone h='3750' id='9' type='text' w='10000' x='100' y='54750'>
+          <formatted-text>
+            <run fontsize='12'>Deaths</run>
+          </formatted-text>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='900' minheight='900' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='10' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='11' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
+                <zone h='7500' id='7' type='text' w='83400' x='200' y='875'>
+                  <formatted-text>
+                    <run fontsize='14'>Comparison of average Injuries caused by Gun Violence and average Deaths caused by Gun Violence in different States</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='3750' id='8' type='text' w='10000' x='300' y='8250'>
+                  <formatted-text>
+                    <run fontsize='12'>Injuries</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='52500' id='3' is-fixed='true' name='Injuries due to Gun Violence in different States' show-title='false' w='69300' x='0' y='12250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='9500' id='4' name='Injuries due to Gun Violence in different States' pane-specification-id='0' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Injured:qk]' type='color' w='14000' x='54300' y='13000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='3750' id='9' type='text' w='10000' x='100' y='54750'>
+                  <formatted-text>
+                    <run fontsize='12'>Deaths</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='52500' id='5' is-fixed='true' name='Deaths due to Gun Violence in different States' show-title='false' w='84200' x='100' y='58750'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='9500' id='6' name='Deaths due to Gun Violence in different States' pane-specification-id='0' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]' type='color' w='14000' x='55800' y='61125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{4936079F-97FE-4B17-B664-84D0AB827D56}' />
+    </dashboard>
+    <dashboard name='Dashboard 2'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='90125' id='3' name='Sheet 11 (3)' w='89400' x='700' y='3750' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='1' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='2' param='vert' type='layout-flow' w='84000' x='8000' y='8000' />
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{5B2AA28E-2EEE-457E-AF03-AF6CE691DC86}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Overall trend and relationship of shooting instances and number of people injured or killed from 2014 to 2016'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{492956FB-1994-41DF-AB68-ED77C1570C4E}' />
+    </window>
+    <window class='worksheet' name='Total Occurence of Gun Violence in different States within the US'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{36DCBAF1-6EB7-477A-81D3-CAA0D80B9E82}' />
+    </window>
+    <window class='worksheet' name='Injuries and Death due to Gun Violence in different States'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{8AFB9C64-0611-4590-B387-AD9A99CCD48C}' />
+    </window>
+    <window class='worksheet' name='Injuries due to Gun Violence in different States'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Injured:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{F18D5CF4-A8C2-4327-9595-347F6D7BAFEC}' />
+    </window>
+    <window class='worksheet' name='Deaths due to Gun Violence in different States'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{04960EE9-C02E-4EA8-8DE6-F202DEC19787}' />
+    </window>
+    <window class='dashboard' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Deaths due to Gun Violence in different States'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Injuries due to Gun Violence in different States'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{B7E1F0B9-7953-4978-BD94-EA72D762F9EC}' />
+    </window>
+    <window class='worksheet' name='Sheet 6'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{CFB75D38-0894-4ED8-BB10-9797C0AC2B4B}' />
+    </window>
+    <window class='worksheet' name='Sheet 6 (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{BA6D5A4C-4D6A-4622-86C8-20D728384293}' />
+    </window>
+    <window class='worksheet' name='Sheet 7'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{26E81569-3DB9-4FE2-9B72-68567D3494F2}' />
+    </window>
+    <window class='worksheet' name='Sheet 8'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{8C65C93C-48DC-4C5F-8D26-0F0909307F8E}' />
+    </window>
+    <window class='worksheet' name='Sheet 8 (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='100'>
+            <card pane-specification-id='0' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3FCF3AB8-2796-48BE-AF0A-991E36EFA794}' />
+    </window>
+    <window class='worksheet' name='Sheet 10'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D49D33FF-136E-4C91-8D84-43ABB56E8914}' />
+    </window>
+    <window class='worksheet' name='Sheet 11'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{489301ED-977D-4B57-B9C9-29CCA7970FD9}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 11 (3)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='100'>
+            <card pane-specification-id='3' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{4118991D-FC20-4158-9167-4AAE0577BCEE}' />
+    </window>
+    <window class='worksheet' name='Sheet 11 (4)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='100'>
+            <card pane-specification-id='1' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{F9AB7C25-AC0B-4498-83E2-6D9398BCF002}' />
+    </window>
+    <window class='worksheet' name='Sheet 11 (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{AA348A3B-BA0E-4A9E-B56D-9F7A1B452421}' />
+    </window>
+    <window class='dashboard' name='Dashboard 2'>
+      <viewpoints>
+        <viewpoint name='Sheet 11 (3)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='3' />
+      <simple-id uuid='{2E21632A-936B-48A1-8BDD-47CC5915455C}' />
+    </window>
+    <window class='worksheet' name='Sheet 16'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{9EC9B43C-E4A3-45E9-BB28-CCEDB34D0263}' />
+    </window>
+  </windows>
+</workbook>
