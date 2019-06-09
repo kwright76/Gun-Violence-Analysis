@@ -370,7 +370,7 @@
           </metadata-records>
         </connection>
       </extract>
-      <layout dim-ordering='alphabetic' dim-percentage='0.508711' measure-ordering='alphabetic' measure-percentage='0.491289' show-structure='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.501742' measure-ordering='alphabetic' measure-percentage='0.498258' show-structure='true' />
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[:Measure Names]' type='palette'>
@@ -422,6 +422,77 @@
     <mapsource name='Tableau' />
   </mapsources>
   <worksheets>
+    <worksheet name='Accidental death and injuries in children and teens'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontname='Arial' fontsize='12'>Accidental death and injuries in children and teens</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
+            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Age]' role='dimension' type='nominal' />
+            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
+            </column>
+            <column datatype='string' name='[Category]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
+            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Age]' derivation='None' name='[none:Age:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[win:sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative'>
+              <table-calc aggregation='Avg' from='-2' ordering-type='Rows' to='0' type='WindowTotal' window-options='IncludeCurrent' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Child&quot;' />
+              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Teen&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]'>
+            <groupfilter function='member' level='[none:Category:nk]' member='&quot;Accidental&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]</column>
+            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[win:sum:Calculation_3359966860112904192:qk]' scope='rows' value='Total accidental Injuries or Deaths' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]' value='false' />
+            <format attr='text-orientation' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]' value='0' />
+            <format attr='font-family' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[win:sum:Calculation_3359966860112904192:qk]' value='Arial' />
+            <format attr='font-family' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]' value='Arial' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[win:sum:Calculation_3359966860112904192:qk]</rows>
+        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</cols>
+      </table>
+      <simple-id uuid='{03DA3895-714F-4894-839A-0CDFDF61E0DA}' />
+    </worksheet>
     <worksheet name='Deaths due to Gun Violence in different States'>
       <table>
         <view>
@@ -728,666 +799,6 @@
       </table>
       <simple-id uuid='{9851050F-03EC-45B8-80DC-BC555E05F20D}' />
     </worksheet>
-    <worksheet name='Sheet 10'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
-          </datasources>
-          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
-            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
-            <column datatype='string' name='[Age]' role='dimension' type='nominal' />
-            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
-            </column>
-            <column-instance column='[Age]' derivation='None' name='[none:Age:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-          </pane>
-        </panes>
-        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]</rows>
-        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Calculation_3359966860112904192:qk]</cols>
-      </table>
-      <simple-id uuid='{7F46D29A-06E8-44A4-A07D-1960DEA6C448}' />
-    </worksheet>
-    <worksheet name='Sheet 11'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
-          </datasources>
-          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
-            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
-            <column datatype='string' name='[Age]' role='dimension' type='nominal' />
-            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
-            </column>
-            <column datatype='string' name='[Category]' role='dimension' type='nominal' />
-            <column-instance column='[Age]' derivation='None' name='[none:Age:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]'>
-            <groupfilter function='member' level='[none:Category:nk]' member='&quot;Accidental&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
-          <slices>
-            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style>
-          <style-rule element='cell'>
-            <format attr='width' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]' value='112' />
-          </style-rule>
-        </style>
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Bar' />
-            <style>
-              <style-rule element='pane'>
-                <format attr='minwidth' value='-1' />
-                <format attr='maxwidth' value='-1' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk] * [federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Calculation_3359966860112904192:qk])</rows>
-        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]</cols>
-      </table>
-      <simple-id uuid='{B975C913-13CA-4307-819F-1FD9995CDE60}' />
-    </worksheet>
-    <worksheet name='Sheet 11 (2)'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
-          </datasources>
-          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
-            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
-            <column datatype='string' name='[Category]' role='dimension' type='nominal' />
-            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
-            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
-            <column-instance column='[# Killed]' derivation='Sum' name='[sum:# Killed:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]'>
-            <groupfilter function='member' level='[none:Category:nk]' member='&quot;Accidental&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
-          <slices>
-            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Line' />
-          </pane>
-        </panes>
-        <rows>([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk] * [federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:# Killed:qk])</rows>
-        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</cols>
-      </table>
-      <simple-id uuid='{1C447E5C-B476-4881-8030-47F99907A5F5}' />
-    </worksheet>
-    <worksheet name='Sheet 11 (3)'>
-      <layout-options>
-        <title>
-          <formatted-text>
-            <run>Increase in instance of injuries or deaths caused by accidental gun violence during second half of the year</run>
-          </formatted-text>
-        </title>
-      </layout-options>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
-          </datasources>
-          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
-            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
-            <column datatype='string' name='[Age]' role='dimension' type='nominal' />
-            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
-            </column>
-            <column datatype='string' name='[Category]' role='dimension' type='nominal' />
-            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
-            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[Age]' derivation='None' name='[none:Age:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[win:sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative'>
-              <table-calc aggregation='Avg' from='-2' ordering-type='Rows' to='0' type='WindowTotal' window-options='IncludeCurrent' />
-            </column-instance>
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]'>
-            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
-              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Child&quot;' />
-              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Teen&quot;' />
-            </groupfilter>
-          </filter>
-          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]'>
-            <groupfilter function='member' level='[none:Category:nk]' member='&quot;Accidental&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
-          <slices>
-            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]</column>
-            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style>
-          <style-rule element='axis'>
-            <format attr='title' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[win:sum:Calculation_3359966860112904192:qk]' scope='rows' value='Average of accidental Injuries or Deaths' />
-          </style-rule>
-          <style-rule element='label'>
-            <format attr='display' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]' value='false' />
-            <format attr='text-orientation' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]' value='0' />
-          </style-rule>
-          <style-rule element='worksheet'>
-            <format attr='display-field-labels' scope='cols' value='false' />
-          </style-rule>
-        </style>
-        <panes>
-          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
-            </encodings>
-          </pane>
-        </panes>
-        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[win:sum:Calculation_3359966860112904192:qk]</rows>
-        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</cols>
-      </table>
-      <simple-id uuid='{03DA3895-714F-4894-839A-0CDFDF61E0DA}' />
-    </worksheet>
-    <worksheet name='Sheet 11 (4)'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
-          </datasources>
-          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
-            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
-            <column datatype='string' name='[Age]' role='dimension' type='nominal' />
-            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
-            </column>
-            <column datatype='string' name='[Category]' role='dimension' type='nominal' />
-            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
-            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
-              <calculation class='tableau' formula='1' />
-            </column>
-            <column-instance column='[# Injured]' derivation='Avg' name='[avg:# Injured:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[# Killed]' derivation='Avg' name='[avg:# Killed:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[Age]' derivation='None' name='[none:Age:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Category]' derivation='None' name='[none:Category:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[win:sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative'>
-              <table-calc aggregation='Avg' from='-2' ordering-type='Rows' to='0' type='WindowTotal' window-options='IncludeCurrent' />
-            </column-instance>
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]'>
-            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
-              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Child&quot;' />
-              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Teen&quot;' />
-            </groupfilter>
-          </filter>
-          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]'>
-            <groupfilter function='member' level='[none:Category:nk]' member='&quot;Accidental&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
-          <slices>
-            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk]</column>
-            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style>
-          <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
-            <format attr='display' class='0' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]' scope='rows' value='false' />
-          </style-rule>
-        </style>
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
-            </encodings>
-          </pane>
-          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Injured:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
-            </encodings>
-          </pane>
-          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
-            </encodings>
-          </pane>
-          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[win:sum:Calculation_3359966860112904192:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
-            </encodings>
-          </pane>
-          <pane id='4' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Number of Records:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' />
-            </encodings>
-          </pane>
-        </panes>
-        <rows>([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Category:nk] * ([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Injured:qk] + ([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk] + ([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[win:sum:Calculation_3359966860112904192:qk] + [federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Number of Records:qk]))))</rows>
-        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</cols>
-      </table>
-      <simple-id uuid='{58714F06-B422-49D3-BF4A-5F7C17456699}' />
-    </worksheet>
-    <worksheet name='Sheet 16'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
-          </datasources>
-          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
-            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
-            <column datatype='string' name='[Age]' role='dimension' type='nominal' />
-            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
-            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[Age]' derivation='None' name='[none:Age:nk]' pivot='key' type='nominal' />
-            <column-instance column='[# Killed]' derivation='Sum' name='[sum:# Killed:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]'>
-            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
-              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Child&quot;' />
-              <groupfilter function='member' level='[none:Age:nk]' member='&quot;Teen&quot;' />
-            </groupfilter>
-          </filter>
-          <slices>
-            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:Age:nk]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-          </pane>
-        </panes>
-        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:# Killed:qk]</rows>
-        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</cols>
-      </table>
-      <simple-id uuid='{903EDD40-A865-4C09-B6B5-19600191E15C}' />
-    </worksheet>
-    <worksheet name='Sheet 6'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
-          </datasources>
-          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
-            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
-            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
-            </column>
-            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
-            <column-instance column='[# Injured]' derivation='Avg' name='[avg:# Injured:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[# Killed]' derivation='Avg' name='[avg:# Killed:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Calculation_3359966860112904192]' derivation='Avg' name='[avg:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[Incident Date]' derivation='Year' name='[yr:Incident Date:ok]' pivot='key' type='ordinal' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[yr:Incident Date:ok]'>
-            <groupfilter function='level-members' level='[yr:Incident Date:ok]' />
-          </filter>
-          <slices>
-            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[yr:Incident Date:ok]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='false' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Injured:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='false' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='false' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Line' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='false' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Injured:qk] + ([federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk] + [federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]))</rows>
-        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</cols>
-      </table>
-      <simple-id uuid='{053FC570-5D67-46C6-AAAA-AE27D2B1F4BC}' />
-    </worksheet>
-    <worksheet name='Sheet 6 (2)'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
-          </datasources>
-          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
-            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
-            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
-            </column>
-            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
-            <column-instance column='[Calculation_3359966860112904192]' derivation='Avg' name='[avg:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[Incident Date]' derivation='Year' name='[yr:Incident Date:ok]' pivot='key' type='ordinal' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[yr:Incident Date:ok]'>
-            <groupfilter function='level-members' level='[yr:Incident Date:ok]' />
-          </filter>
-          <slices>
-            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[yr:Incident Date:ok]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Line' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='false' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]</rows>
-        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</cols>
-      </table>
-      <simple-id uuid='{36FC7CAF-C987-46FE-BAFA-0C2282916BFD}' />
-    </worksheet>
-    <worksheet name='Sheet 7'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
-          </datasources>
-          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
-            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
-            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
-            </column>
-            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
-            <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
-            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Calculation_3359966860112904192]' derivation='Sum' name='[sum:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]'>
-            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Alabama&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Arizona&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;California&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Colorado&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Florida&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Georgia&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Hawaii&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Illinois&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Kentucky&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Louisiana&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Mississippi&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Missouri&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Nebraska&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Nevada&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;New Mexico&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;New York&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;North Carolina&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;South Carolina&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Tennessee&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Texas&quot;' />
-              <groupfilter function='member' level='[none:State:nk]' member='&quot;Utah&quot;' />
-            </groupfilter>
-          </filter>
-          <slices>
-            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <lod column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[sum:Calculation_3359966860112904192:qk]' />
-            </encodings>
-          </pane>
-        </panes>
-        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</rows>
-        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]</cols>
-      </table>
-      <simple-id uuid='{D25B181F-8E9C-4034-BD52-09A4C4051759}' />
-    </worksheet>
-    <worksheet name='Sheet 8'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
-          </datasources>
-          <mapsources>
-            <mapsource name='Tableau' />
-          </mapsources>
-          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
-            <column datatype='integer' name='[# Injured]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
-            <column caption='Injuries or Deaths' datatype='integer' name='[Calculation_3359966860112904192]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='[# Killed] +[# Injured]' />
-            </column>
-            <column datatype='date' name='[Incident Date]' role='dimension' type='ordinal' />
-            <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
-            <column-instance column='[Calculation_3359966860112904192]' derivation='Avg' name='[avg:Calculation_3359966860112904192:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Incident Date]' derivation='Month' name='[mn:Incident Date:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]'>
-            <groupfilter function='member' level='[mn:Incident Date:ok]' member='7' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
-          <slices>
-            <column>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style>
-          <style-rule element='mark'>
-            <encoding attr='color' field='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]' num-steps='5' palette='red_gold_10_0' type='interpolated' />
-          </style-rule>
-          <style-rule element='map-layer'>
-            <format attr='enabled' id='tab_base' value='true' />
-            <format attr='enabled' id='um_lcover' value='true' />
-            <format attr='enabled' id='tab_coastline' value='false' />
-            <format attr='enabled' id='pp2_line' value='false' />
-            <format attr='enabled' id='light_adm0_bnd' value='false' />
-            <format attr='enabled' id='light_adm0_lbl' value='false' />
-            <format attr='enabled' id='um_adm0_bnd' value='true' />
-            <format attr='enabled' id='um_adm0_lbl' value='true' />
-            <format attr='enabled' id='light_pp2_statebounds' value='false' />
-            <format attr='enabled' id='light_pp2_statelabels' value='false' />
-            <format attr='enabled' id='pp2_adminlabels' value='false' />
-            <format attr='enabled' id='pp2_statebounds' value='true' />
-            <format attr='enabled' id='pp2_statelabels' value='true' />
-            <format attr='enabled' id='countybounds' value='false' />
-            <format attr='enabled' id='countylabels' value='false' />
-            <format attr='enabled' id='zipbounds' value='false' />
-            <format attr='enabled' id='ziplabels' value='false' />
-            <format attr='enabled' id='tab_areabounds' value='false' />
-            <format attr='enabled' id='tab_arealabels' value='false' />
-            <format attr='enabled' id='tab_msabounds' value='false' />
-            <format attr='enabled' id='tab_msalabels' value='false' />
-          </style-rule>
-          <style-rule element='map'>
-            <format attr='washout' value='0.0' />
-          </style-rule>
-        </style>
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]' />
-              <lod column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]' />
-              <lod column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]' />
-              <geometry column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Geometry (generated)]' />
-            </encodings>
-          </pane>
-        </panes>
-        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Latitude (generated)]</rows>
-        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Longitude (generated)]</cols>
-      </table>
-      <simple-id uuid='{08E410CF-3603-4F2B-80C4-F7BC1DB1A701}' />
-    </worksheet>
-    <worksheet name='Sheet 8 (2)'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='gun_violence' name='federated.02955iz0yy1kqp13q0tiv1vlhg9q' />
-          </datasources>
-          <mapsources>
-            <mapsource name='Tableau' />
-          </mapsources>
-          <datasource-dependencies datasource='federated.02955iz0yy1kqp13q0tiv1vlhg9q'>
-            <column datatype='integer' name='[# Killed]' role='measure' type='quantitative' />
-            <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
-            <column-instance column='[# Killed]' derivation='Avg' name='[avg:# Killed:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
-          </datasource-dependencies>
-          <aggregation value='true' />
-        </view>
-        <style>
-          <style-rule element='map-layer'>
-            <format attr='enabled' id='tab_base' value='true' />
-            <format attr='enabled' id='um_lcover' value='true' />
-            <format attr='enabled' id='tab_coastline' value='false' />
-            <format attr='enabled' id='pp2_line' value='false' />
-            <format attr='enabled' id='light_adm0_bnd' value='false' />
-            <format attr='enabled' id='light_adm0_lbl' value='false' />
-            <format attr='enabled' id='um_adm0_bnd' value='true' />
-            <format attr='enabled' id='um_adm0_lbl' value='true' />
-            <format attr='enabled' id='light_pp2_statebounds' value='false' />
-            <format attr='enabled' id='light_pp2_statelabels' value='false' />
-            <format attr='enabled' id='pp2_adminlabels' value='false' />
-            <format attr='enabled' id='pp2_statebounds' value='true' />
-            <format attr='enabled' id='pp2_statelabels' value='true' />
-            <format attr='enabled' id='countybounds' value='false' />
-            <format attr='enabled' id='countylabels' value='false' />
-            <format attr='enabled' id='zipbounds' value='false' />
-            <format attr='enabled' id='ziplabels' value='false' />
-            <format attr='enabled' id='tab_areabounds' value='false' />
-            <format attr='enabled' id='tab_arealabels' value='false' />
-            <format attr='enabled' id='tab_msabounds' value='false' />
-            <format attr='enabled' id='tab_msalabels' value='false' />
-          </style-rule>
-          <style-rule element='map'>
-            <format attr='washout' value='0.0' />
-          </style-rule>
-        </style>
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]' />
-              <lod column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[none:State:nk]' />
-              <geometry column='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Geometry (generated)]' />
-            </encodings>
-          </pane>
-        </panes>
-        <rows>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Latitude (generated)]</rows>
-        <cols>[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[Longitude (generated)]</cols>
-      </table>
-      <simple-id uuid='{C9CAF92B-E678-4103-8707-9FB3F55F761F}' />
-    </worksheet>
     <worksheet name='Total Occurence of Gun Violence in different States within the US'>
       <table>
         <view>
@@ -1538,30 +949,6 @@
       </devicelayouts>
       <simple-id uuid='{4936079F-97FE-4B17-B664-84D0AB827D56}' />
     </dashboard>
-    <dashboard name='Dashboard 2'>
-      <style />
-      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
-      <zones>
-        <zone h='90125' id='3' name='Sheet 11 (3)' w='89400' x='700' y='3750' />
-      </zones>
-      <devicelayouts>
-        <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
-          <zones>
-            <zone h='100000' id='1' type='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='2' param='vert' type='layout-flow' w='84000' x='8000' y='8000' />
-              <zone-style>
-                <format attr='border-color' value='#000000' />
-                <format attr='border-style' value='none' />
-                <format attr='border-width' value='0' />
-                <format attr='margin' value='8' />
-              </zone-style>
-            </zone>
-          </zones>
-        </devicelayout>
-      </devicelayouts>
-      <simple-id uuid='{5B2AA28E-2EEE-457E-AF03-AF6CE691DC86}' />
-    </dashboard>
   </dashboards>
   <windows source-height='30'>
     <window class='worksheet' name='Overall trend and relationship of shooting instances and number of people injured or killed from 2014 to 2016'>
@@ -1711,7 +1098,7 @@
       <active id='-1' />
       <simple-id uuid='{B7E1F0B9-7953-4978-BD94-EA72D762F9EC}' />
     </window>
-    <window class='worksheet' name='Sheet 6'>
+    <window class='worksheet' maximized='true' name='Accidental death and injuries in children and teens'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1729,270 +1116,10 @@
           </strip>
           <strip size='31'>
             <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{CFB75D38-0894-4ED8-BB10-9797C0AC2B4B}' />
-    </window>
-    <window class='worksheet' name='Sheet 6 (2)'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{BA6D5A4C-4D6A-4622-86C8-20D728384293}' />
-    </window>
-    <window class='worksheet' name='Sheet 7'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{26E81569-3DB9-4FE2-9B72-68567D3494F2}' />
-    </window>
-    <window class='worksheet' name='Sheet 8'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='160'>
-            <card param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[mn:Incident Date:ok]' type='filter' />
-            <card pane-specification-id='0' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:Calculation_3359966860112904192:qk]' type='color' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{8C65C93C-48DC-4C5F-8D26-0F0909307F8E}' />
-    </window>
-    <window class='worksheet' name='Sheet 8 (2)'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='100'>
-            <card pane-specification-id='0' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[avg:# Killed:qk]' type='color' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{3FCF3AB8-2796-48BE-AF0A-991E36EFA794}' />
-    </window>
-    <window class='worksheet' name='Sheet 10'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{D49D33FF-136E-4C91-8D84-43ABB56E8914}' />
-    </window>
-    <window class='worksheet' name='Sheet 11'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{489301ED-977D-4B57-B9C9-29CCA7970FD9}' />
-    </window>
-    <window class='worksheet' maximized='true' name='Sheet 11 (3)'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='100'>
-            <card pane-specification-id='3' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' type='color' />
           </strip>
         </edge>
       </cards>
       <simple-id uuid='{4118991D-FC20-4158-9167-4AAE0577BCEE}' />
-    </window>
-    <window class='worksheet' name='Sheet 11 (4)'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='100'>
-            <card pane-specification-id='1' param='[federated.02955iz0yy1kqp13q0tiv1vlhg9q].[:Measure Names]' type='color' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{F9AB7C25-AC0B-4498-83E2-6D9398BCF002}' />
-    </window>
-    <window class='worksheet' name='Sheet 11 (2)'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{AA348A3B-BA0E-4A9E-B56D-9F7A1B452421}' />
-    </window>
-    <window class='dashboard' name='Dashboard 2'>
-      <viewpoints>
-        <viewpoint name='Sheet 11 (3)'>
-          <zoom type='entire-view' />
-        </viewpoint>
-      </viewpoints>
-      <active id='3' />
-      <simple-id uuid='{2E21632A-936B-48A1-8BDD-47CC5915455C}' />
-    </window>
-    <window class='worksheet' name='Sheet 16'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{9EC9B43C-E4A3-45E9-BB28-CCEDB34D0263}' />
     </window>
   </windows>
 </workbook>
