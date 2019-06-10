@@ -14,3 +14,6 @@ Visualizations are formed based on non-trivial findings using Altair and Tableau
 3. **Revised Version:** 
 The final visualization of our data findings that will be reproducible and self contained.
 
+This project has led to several insights about the unique Gun Violence problem in the U.S. Click [here](https://github.com/kwright76/Gun-Violence-Analysis/blob/master/Revised%20Version.ipynb) to check out our final product and findings!
+
+
