@@ -16,4 +16,5 @@ The final visualization of our data findings that will be reproducible and self 
 
 This project has led to several insights about the unique Gun Violence problem in the U.S. Click [here](https://github.com/kwright76/Gun-Violence-Analysis/blob/master/Revised%20Version.ipynb) to check out our final product and findings!
 
+Check out our quick [Introduction video](https://youtu.be/5UEKERNweZY)!
 
